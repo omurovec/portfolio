@@ -324,6 +324,13 @@ h1 {
 
   #about {
     flex-direction: column-reverse;
+    .container {
+      flex-direction: column-reverse;
+    }
+
+    div {
+      height: 40vh;
+    }
 
     .about {
       div {

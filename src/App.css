@@ -232,6 +232,10 @@ h1 {
 
   #about {
     flex-direction: column-reverse; }
+    #about .container {
+      flex-direction: column-reverse; }
+    #about div {
+      height: 40vh; }
     #about .about div {
       justify-content: end; }
 

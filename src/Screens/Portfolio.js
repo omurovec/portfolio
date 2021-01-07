@@ -3,6 +3,7 @@ import Background from '../assets/background.png';
 import ArrowLeft from '../assets/arrow-left.svg';
 import ArrowRight from '../assets/arrow-right.svg';
 import iPhone from '../assets/iPhone-body.png';
+import Link from '../assets/link.svg';
 
 export default function Portfolio() {
     
@@ -25,13 +26,29 @@ const Carousel = (data) => {
     {
       video: "geoguesser.mp4",
       title: "GeoQuiz",
-      desc: "this is a description"
+      desc: "The idea behind this project was to recreate the popular web game GeoGuessr as a native mobile app and one of the first large-scale applications I've designed and developed on my own. Built using React Native and Redux for the front end and TypeScript/Node with Firebase for the backend services. One of the most challenging aspects of this project was making the tool to generate random streetview locations within a GeoPoint polygon which can be found at the link below.",
+      links: [
+        {
+          name: "StreetView Location Generator",
+          link: "https://github.com/omurovec/geoquiz-map-tool"
+        }
+      ]
     },
-  //   {
-  //     video: "purplr-test.png",
-  //     title: "Purplr",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nulla at diam vestibulum dictum ut vitae diam. Donec malesuada augue in auctor euismod. Morbi sodales volutpat lacus ac cursus. Suspendisse consectetur lectus ac lorem finibus interdum. Nulla facilisi. Duis mattis ligula ex, ac rutrum lorem luctus quis. Nullam elementum condimentum quam. Phasellus pharetra consequat libero, et feugiat ligula placerat a."
-  //   }
+    {
+      video: "omdb.mp4",
+      title: "Open Movie DB Nomination Service",
+      desc: "This is a simple web application using the Open Movie Database that allows users to nominate up to 5 of their favourite movies. Search results are updated as the user types, nominations are stored in local storage, and users can click on a result to see more info. This site and source code can be found in the links below.",
+      links: [
+        {
+          name: "Live Website",
+          link: "https://omurovec.github.io/OMDB-frontend/"
+        },
+        {
+          name: "Source Code",
+          link: "https://github.com/omurovec/OMDB-frontend"
+        }
+      ]
+    }
   ];
 
   function incPanel(i) {
@@ -78,6 +95,18 @@ const Carousel = (data) => {
       <div className="text-container">
         <h2>{entries[panelInd].title}</h2>
         <p>{entries[panelInd].desc}</p>
+        {entries[panelInd].links?.map((item) => 
+          <div className="link" key={item.name}>
+            <img src={Link} alt="link"/>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.name}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

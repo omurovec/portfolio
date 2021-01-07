@@ -231,6 +231,24 @@ h1 {
         justify-content: center;
         width: auto;
         max-width: 60%;
+
+        .link {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          img {
+            margin: 5px;
+            margin-left: 0;
+            height: 20px;
+          }
+
+          a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+          }
+        }
       }
     }
   }
@@ -390,11 +408,6 @@ h1 {
             height: 40vh;
           }
 
-          .text-container {
-              margin-top: 0;
-              margin-right: 0;
-          }
-
           .arrow {
             top: 25%;
             width: 25px;
@@ -411,6 +424,14 @@ h1 {
         .text-container {
           margin: 10%;
           max-width: 100%;
+
+          .link {
+
+            img {
+              width: 15px;
+              height: 15px;
+            }
+          }
         }
       }
     }

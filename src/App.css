@@ -170,6 +170,18 @@ h1 {
       justify-content: center;
       width: auto;
       max-width: 60%; }
+      #portfolio div .panel .text-container .link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+        #portfolio div .panel .text-container .link img {
+          margin: 5px;
+          margin-left: 0;
+          height: 20px; }
+        #portfolio div .panel .text-container .link a {
+          color: #000;
+          text-decoration: none;
+          font-weight: 500; }
 
 #contact {
   display: flex;
@@ -277,9 +289,6 @@ h1 {
           height: 42vh; }
         #portfolio div .panel .phone-container .phone-video {
           height: 40vh; }
-        #portfolio div .panel .phone-container .text-container {
-          margin-top: 0;
-          margin-right: 0; }
         #portfolio div .panel .phone-container .arrow {
           top: 25%;
           width: 25px;
@@ -290,7 +299,10 @@ h1 {
           margin-right: 25px; }
       #portfolio div .panel .text-container {
         margin: 10%;
-        max-width: 100%; } }
+        max-width: 100%; }
+        #portfolio div .panel .text-container .link img {
+          width: 15px;
+          height: 15px; } }
 @media (min-width: 1920px) {
   html {
     font-size: 20px; } }

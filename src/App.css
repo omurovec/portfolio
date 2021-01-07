@@ -96,10 +96,22 @@ h1 {
       line-height: 2;
       font-size: 1.1rem; }
 #about .profile {
+  display: flex;
   align-items: center;
-  margin: 10% 0; }
+  margin: 10% 0;
+  width: auto; }
   #about .profile img {
     width: 70%; }
+  #about .profile #matrix {
+    font-family: "B612 Mono", monospace;
+    position: absolute;
+    opacity: 0.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: -1;
+    margin: auto; }
 
 #portfolio .container {
   width: 90%;
@@ -262,8 +274,6 @@ h1 {
       align-items: flex-start; }
       #about .about div {
         justify-content: end; }
-    #about .profile {
-      align-items: flex-end; }
 
   #portfolio {
     overflow: hidden; }

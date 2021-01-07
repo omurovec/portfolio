@@ -11,13 +11,14 @@ export default function Icosahedron(id, size) {
     renderer.setSize(size.width, size.height);
     document.querySelector(id).appendChild(renderer.domElement);
 
+    const sizeDiff = size.width > 300 ? 0.005 : 0.01;
     let geometry = new THREE.IcosahedronGeometry(3, 1);
-    let altGeometry = new THREE.IcosahedronGeometry(3.005, 1);
+    let altGeometry = new THREE.IcosahedronGeometry(3 + sizeDiff, 1);
    
     let edges = new THREE.EdgesGeometry(altGeometry);
     let lines = new THREE.LineSegments(
       edges,
-      new THREE.LineBasicMaterial({color: "#000", linewidth: 5})
+      new THREE.LineBasicMaterial({color: "#000", linewidth: 1})
     );
     let material = new THREE.MeshBasicMaterial({
       color: '#f8f8f8',

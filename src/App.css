@@ -4,7 +4,8 @@ html {
   font-size: 1vw;
   scroll-behavior: smooth;
   font-family: "Roboto";
-  background-color: #F8F8F8; }
+  background-color: #F8F8F8;
+  overflow-x: hidden; }
 
 h1 {
   font-size: 5rem;
@@ -71,7 +72,6 @@ h1 {
     transition-duration: 200ms; }
 
 #about .container {
-  flex-wrap: wrap-reverse;
   margin: 0 5%;
   width: 90%;
   max-width: 1440px; }
@@ -82,18 +82,21 @@ h1 {
   align-items: center;
   justify-content: center;
   height: 60vh; }
-#about .about div {
-  margin: 10%;
-  flex-direction: column; }
-  #about .about div h2 {
-    font-family: "Roboto";
-    align-self: flex-start;
-    font-size: 1.4rem; }
-  #about .about div p {
-    font-family: "Roboto";
-    line-height: 2;
-    font-size: 0.9rem; }
+#about .about {
+  align-items: center; }
+  #about .about div {
+    margin: 10%;
+    flex-direction: column; }
+    #about .about div h2 {
+      font-family: "Roboto";
+      align-self: flex-start;
+      font-size: 1.4rem; }
+    #about .about div p {
+      font-family: "Roboto";
+      line-height: 2;
+      font-size: 1.1rem; }
 #about .profile {
+  align-items: center;
   margin: 10% 0; }
   #about .profile img {
     width: 70%; }
@@ -140,17 +143,22 @@ h1 {
       display: flex;
       align-items: center;
       width: auto; }
-      #portfolio div .panel .phone-container .phone {
+      #portfolio div .panel .phone-container .phone-body {
+        position: absolute;
         height: 100%; }
+      #portfolio div .panel .phone-container .phone-video {
+        height: 95%;
+        mask-image: url(./assets/screen-mask.png);
+        mask-size: 100%; }
       #portfolio div .panel .phone-container .arrow {
         width: 20px;
         height: 20px;
         transform: translateY(-50%);
         cursor: pointer; }
       #portfolio div .panel .phone-container .left {
-        left: -60px; }
+        margin-right: 50px; }
       #portfolio div .panel .phone-container .right {
-        right: -60px; }
+        margin-left: 50px; }
     #portfolio div .panel .text-container {
       align-self: flex-start;
       flex: 1;
@@ -235,9 +243,13 @@ h1 {
     #about .container {
       flex-direction: column-reverse; }
     #about div {
-      height: 40vh; }
-    #about .about div {
-      justify-content: end; }
+      height: auto; }
+    #about .about {
+      align-items: flex-start; }
+      #about .about div {
+        justify-content: end; }
+    #about .profile {
+      align-items: flex-end; }
 
   #portfolio {
     overflow: hidden; }
@@ -260,9 +272,10 @@ h1 {
       #portfolio div .panel .phone-container {
         margin-top: 10%;
         width: 100%; }
-        #portfolio div .panel .phone-container .phone {
-          margin: 10%;
+        #portfolio div .panel .phone-container .phone-body {
           margin-bottom: 0;
+          height: 42vh; }
+        #portfolio div .panel .phone-container .phone-video {
           height: 40vh; }
         #portfolio div .panel .phone-container .text-container {
           margin-top: 0;
@@ -272,9 +285,9 @@ h1 {
           width: 25px;
           height: 25px; }
         #portfolio div .panel .phone-container .right {
-          right: 35px; }
+          margin-left: 25px; }
         #portfolio div .panel .phone-container .left {
-          left: 35px; }
+          margin-right: 25px; }
       #portfolio div .panel .text-container {
         margin: 10%;
         max-width: 100%; } }

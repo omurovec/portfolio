@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Background from '../assets/background.png';
 import ArrowLeft from '../assets/arrow-left.svg';
 import ArrowRight from '../assets/arrow-right.svg';
+import iPhone from '../assets/iPhone-body.png';
 
 export default function Portfolio() {
     
@@ -22,15 +23,15 @@ const Carousel = (data) => {
   const [panelInd, setPanelInd] = useState(0);
   const entries = [
     {
-      img: "iphone-test.png",
+      video: "geoguesser.mp4",
       title: "GeoQuiz",
       desc: "this is a description"
     },
-    {
-      img: "purplr-test.png",
-      title: "Purplr",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nulla at diam vestibulum dictum ut vitae diam. Donec malesuada augue in auctor euismod. Morbi sodales volutpat lacus ac cursus. Suspendisse consectetur lectus ac lorem finibus interdum. Nulla facilisi. Duis mattis ligula ex, ac rutrum lorem luctus quis. Nullam elementum condimentum quam. Phasellus pharetra consequat libero, et feugiat ligula placerat a."
-    }
+  //   {
+  //     video: "purplr-test.png",
+  //     title: "Purplr",
+  //     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nulla at diam vestibulum dictum ut vitae diam. Donec malesuada augue in auctor euismod. Morbi sodales volutpat lacus ac cursus. Suspendisse consectetur lectus ac lorem finibus interdum. Nulla facilisi. Duis mattis ligula ex, ac rutrum lorem luctus quis. Nullam elementum condimentum quam. Phasellus pharetra consequat libero, et feugiat ligula placerat a."
+  //   }
   ];
 
   function incPanel(i) {
@@ -53,10 +54,20 @@ const Carousel = (data) => {
           onClick={() => incPanel(-1)}
         />
         <img
-          src={require(`../assets/${entries[panelInd].img}`)}
-          className="phone"
-          alt="phoneImage"
+          src={iPhone}
+          className="phone-body"
+          alt="iphone"
         />
+        <video
+          autoPlay={true}
+          loop={true}
+          muted={true}
+          playsInline={true}
+          src={require(`../assets/${entries[panelInd].video}`)}
+          className="phone-video"
+          alt="phoneVideo"
+        >
+        </video>
         <img
           src={ArrowRight}
           className="arrow right"

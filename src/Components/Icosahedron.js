@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 export default function Icosahedron(id, size) {
     let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera(75, size.width/size.height, 0.1, 10);
+    let camera = new THREE.PerspectiveCamera(75, size.width/size.height, 0.01, 10);
     camera.fov = 10;
 
     let bgColor = new THREE.Color(0xf8f8f8);
@@ -11,20 +11,29 @@ export default function Icosahedron(id, size) {
     renderer.setSize(size.width, size.height);
     document.querySelector(id).appendChild(renderer.domElement);
 
-    let geometry = new THREE.IcosahedronGeometry(3, 0);
+    let geometry = new THREE.IcosahedronGeometry(3, 1);
+    let altGeometry = new THREE.IcosahedronGeometry(3.005, 1);
+   
+    let edges = new THREE.EdgesGeometry(altGeometry);
+    let lines = new THREE.LineSegments(
+      edges,
+      new THREE.LineBasicMaterial({color: "#000", linewidth: 5})
+    );
     let material = new THREE.MeshBasicMaterial({
-      color: '#000000',
-      wireframe: true,
+      color: '#f8f8f8',
     })
 
     let icosahedron = new THREE.Mesh(geometry, material)
+    scene.add(lines);
     scene.add(icosahedron);
     camera.position.z = 5;
     var animate = function() {
       requestAnimationFrame(animate);
 
-      icosahedron.rotation.y += 0.005;
-      icosahedron.rotation.x += 0.005;
+      icosahedron.rotation.y += 0.001;
+      icosahedron.rotation.x += 0.001;
+      lines.rotation.y += 0.001;
+      lines.rotation.x += 0.001;
 
       renderer.render(scene, camera);
     };

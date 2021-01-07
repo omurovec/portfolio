@@ -13,7 +13,7 @@ export default function Icosahedron(id, size) {
     let geometry = new THREE.IcosahedronGeometry(3, 0);
     let material = new THREE.MeshBasicMaterial({
       color: '#000000',
-      wireframe: true,
+      wireframe: false,
     })
 
     let icosahedron = new THREE.Mesh(geometry, material)

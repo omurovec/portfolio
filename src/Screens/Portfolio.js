@@ -35,6 +35,11 @@ const Carousel = (data) => {
       ]
     },
     {
+      video: "purplr.mp4",
+      title: "Purplr",
+      desc: "For this project I was hired to rebuild the UI of a native mobile application. This was one of the first professional jobs I started and my first oppourtunity to work on a large pre-existing codebase. I was given the designs and asked to implement them in React Native in less than a week which was a bit of a challenge but I think it turned out well and the client was very happy with the outcome. The project is still currently under development."
+    },
+    {
       video: "omdb.mp4",
       title: "Open Movie DB Nomination Service",
       desc: "This is a simple web application using the Open Movie Database that allows users to nominate up to 5 of their favourite movies. Search results are updated as the user types, nominations are stored in local storage, and users can click on a result to see more info. This site and source code can be found in the links below.",

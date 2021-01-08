@@ -45,16 +45,16 @@ export default function About() {
             <div>
               <h2>About Me</h2>
               <p>
-                  I’m a growing web developer with a mathematical brain
-                  and an artistic point of view. My interest in
-                  programming stemmed from my fascination with
-                  the way things work and wanting to take a look behind
-                  the curtain. Once I learned how to build programs in
-                  highschool it gave me a new perspective and I knew that
-                  this is what I wanted to do for a living. I come from a
-                  family of builders and I aspire to use that foundation
-                  to build new solutions that solve large scale problems in
-                  the world of tech.
+                I’m a growing web developer with a mathematical brain
+                and an artistic point of view. My interest in
+                programming largely stems from my fascination with
+                the way things work and my desire to understand how things
+                operate behind the scenes. Once I learned how to write programs in
+                highschool it gave me a new perspective and I knew that
+                I needed to learn more. Since then, I have continued to
+                research Computer Science and spend time challenging myself with
+                new projects and concepts. One day I hope to use my skills to
+                build solutions that solve large scale, real world problems.
               </p>
             </div>
           </div>

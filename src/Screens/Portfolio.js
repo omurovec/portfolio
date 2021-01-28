@@ -1,72 +1,62 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Background from '../assets/background.png';
 import ArrowLeft from '../assets/arrow-left.svg';
 import ArrowRight from '../assets/arrow-right.svg';
 import iPhone from '../assets/iPhone-body.png';
 import Link from '../assets/link.svg';
+import { firestore, storage } from '../Firebase';
 
 export default function Portfolio() {
-    
   return (
     <div className="page" id="portfolio">
       <div className="container">
         <h1>Portfolio</h1>
-        <div>
-            <img className="background" src={Background} alt="background"/>
-            <Carousel/>
+        <div className="slide">
+          <img className="background" src={Background} alt="background" />
+          <Carousel />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const Carousel = (data) => {
   const [panelInd, setPanelInd] = useState(0);
-  const entries = [
-    {
-      video: "geoguesser.mp4",
-      title: "GeoQuiz",
-      desc: "The idea behind this project was to recreate the popular web game GeoGuessr as a native mobile app and one of the first large-scale applications I've designed and developed on my own. Built using React Native and Redux for the front end and TypeScript/Node with Firebase for the backend services. One of the most challenging aspects of this project was making the tool to generate random streetview locations within a GeoPoint polygon which can be found at the link below.",
-      links: [
-        {
-          name: "StreetView Location Generator",
-          link: "https://github.com/omurovec/geoquiz-map-tool"
-        }
-      ]
-    },
-    {
-      video: "purplr.mp4",
-      title: "Purplr",
-      desc: "For this project I was hired to rebuild the UI of a native mobile application. This was one of the first professional jobs I started and my first oppourtunity to work on a large pre-existing codebase. I was given the designs and asked to implement them in React Native in less than a week which was a bit of a challenge but I think it turned out well and the client was very happy with the outcome. The project is still currently under development."
-    },
-    {
-      video: "omdb.mp4",
-      title: "Open Movie DB Nomination Service",
-      desc: "This is a simple web application using the Open Movie Database that allows users to nominate up to 5 of their favourite movies. Search results are updated as the user types, nominations are stored in local storage, and users can click on a result to see more info. This site and source code can be found in the links below.",
-      links: [
-        {
-          name: "Live Website",
-          link: "https://omurovec.github.io/OMDB-frontend/"
-        },
-        {
-          name: "Source Code",
-          link: "https://github.com/omurovec/OMDB-frontend"
-        }
-      ]
+  const [entries, setEntries] = useState(0);
+
+  useEffect(() => {
+    let subscribed = true;
+    if (!entries) {
+      firestore
+        .collection('entries')
+        .get()
+        .then((snapshot) => {
+          let results = [];
+          snapshot.forEach((doc) => {
+            results.push(doc.data());
+          });
+          if (subscribed) {
+            setEntries(results);
+          }
+        })
+        .catch((err) => console.warn(err));
     }
-  ];
+    return () => {
+      subscribed = false;
+    };
+  }, [entries]);
 
   function incPanel(i) {
-    if(panelInd===0&i<0) {
-      setPanelInd(entries.length-1);
-    }else if(panelInd===entries.length-1&i>0) {
+    if ((panelInd === 0) & (i < 0)) {
+      setPanelInd(entries.length - 1);
+    } else if ((panelInd === entries.length - 1) & (i > 0)) {
       setPanelInd(0);
-    }else {
+    } else {
       setPanelInd(panelInd + i);
     }
   }
 
-  return (
+  return entries ? (
     <div className="panel">
       <div className="phone-container">
         <img
@@ -75,21 +65,8 @@ const Carousel = (data) => {
           alt="arrowL"
           onClick={() => incPanel(-1)}
         />
-        <img
-          src={iPhone}
-          className="phone-body"
-          alt="iphone"
-        />
-        <video
-          autoPlay={true}
-          loop={true}
-          muted={true}
-          playsInline={true}
-          src={require(`../assets/${entries[panelInd].video}`)}
-          className="phone-video"
-          alt="phoneVideo"
-        >
-        </video>
+        <img src={iPhone} className="phone-body" alt="iphone" />
+        <PhoneVideo videoRef={entries[panelInd].videoRef} />
         <img
           src={ArrowRight}
           className="arrow right"
@@ -100,19 +77,57 @@ const Carousel = (data) => {
       <div className="text-container">
         <h2>{entries[panelInd].title}</h2>
         <p>{entries[panelInd].desc}</p>
-        {entries[panelInd].links?.map((item) => 
+        {entries[panelInd].links?.map((item) => (
           <div className="link" key={item.name}>
-            <img src={Link} alt="link"/>
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <img src={Link} alt="link" />
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
               {item.name}
             </a>
           </div>
-        )}
+        ))}
       </div>
     </div>
+  ) : (
+    <div className="panel loading-container">
+      <div className="loader" />
+    </div>
   );
-}
+};
+
+const PhoneVideo = ({ videoRef }) => {
+  const [src, setSrc] = useState(null);
+
+  useEffect(() => {
+    let subscribed = true;
+    storage
+      .ref(videoRef)
+      .getDownloadURL()
+      .then((result) => {
+        if (subscribed) {
+          setSrc(result);
+        }
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+    return () => {
+      subscribed = false;
+    };
+  }, [videoRef]);
+
+  return src ? (
+    <video
+      autoPlay={true}
+      loop={true}
+      muted={true}
+      playsInline={true}
+      src={src}
+      className="phone-video"
+      alt="phoneVideo"
+    ></video>
+  ) : (
+    <div className="phone-video">
+      <div className="loader" />
+    </div>
+  );
+};

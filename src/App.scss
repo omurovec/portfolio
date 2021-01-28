@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-$offWhite: #F8F8F8;
+$offWhite: #f8f8f8;
 
 html {
   font-size: 1vw;
   scroll-behavior: smooth;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   background-color: $offWhite;
   overflow-x: hidden;
 }
@@ -28,18 +28,36 @@ h1 {
   justify-content: center;
 }
 
+.loader {
+  border: 4px solid #fff;
+  border-top: 4px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 #header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;;
+  z-index: 2;
 
   .container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
   }
 
   .page-link {
@@ -95,7 +113,6 @@ h1 {
 }
 
 #about {
-
   .container {
     margin: 0 5%;
     width: 90%;
@@ -109,7 +126,6 @@ h1 {
     align-items: center;
     justify-content: center;
     height: 60vh;
-  
   }
 
   .about {
@@ -119,13 +135,13 @@ h1 {
       flex-direction: column;
 
       h2 {
-        font-family: "Roboto";
+        font-family: 'Roboto';
         align-self: flex-start;
         font-size: 1.4rem;
       }
 
       p {
-        font-family: "Roboto";
+        font-family: 'Roboto';
         line-height: 2;
         font-size: 1.1rem;
       }
@@ -143,7 +159,7 @@ h1 {
     }
 
     #matrix {
-      font-family: "B612 Mono", monospace;
+      font-family: 'B612 Mono', monospace;
       position: absolute;
       opacity: 0.3;
       top: 50%;
@@ -166,11 +182,11 @@ h1 {
 
   h1 {
     font-size: 2.4rem;
-    font-family: "roboto";
+    font-family: 'roboto';
     font-weight: 600;
   }
 
-  div {
+  .slide {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -195,42 +211,61 @@ h1 {
       bottom: 10%;
       display: flex;
       flex-direction: row;
-      align-items: center; justify-content: flex-start;
+      align-items: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       transition: all 300ms;
 
+      &.loading-container {
+        align-items: center;
+        justify-content: center;
+        background: none;
+
+        .loader {
+          box-shadow: 0 0 0 15px #fff;
+          border-width: 8px;
+          background-color: #fff;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
       .phone-container {
         height: 80%;
-        margin: 0 5%;
+        margin: 0 10%;
         max-height: 40vh;
         display: flex;
         align-items: center;
-        width: auto;
+        justify-content: center;
+        position: relative;
 
         .phone-body {
-          position: absolute;
           height: 100%;
         }
 
         .phone-video {
+          position: absolute;
+          display: flex;
           height: 95%;
+          align-items: center;
+          justify-content: center;
           mask-image: url(./assets/screen-mask.png);
           mask-size: 100%;
         }
 
         .arrow {
+          position: absolute;
           width: 20px;
           height: 20px;
-          transform: translateY(-50%);
           cursor: pointer;
         }
 
         .left {
-          margin-right: 50px;
+          left: -40px;
         }
 
         .right {
-          margin-left: 50px;
+          right: -40px;
         }
       }
 
@@ -254,7 +289,8 @@ h1 {
           img {
             margin: 5px;
             margin-left: 0;
-            height: 20px;}
+            height: 20px;
+          }
 
           a {
             color: #000;
@@ -294,8 +330,7 @@ h1 {
   }
 }
 
-@media(max-width: 1080px) {
-
+@media (max-width: 1080px) {
   html {
     font-size: 3vw;
   }
@@ -346,7 +381,6 @@ h1 {
     }
   }
 
-
   h1 {
     font-size: 3.5rem;
   }
@@ -378,7 +412,7 @@ h1 {
     .about {
       align-items: flex-start;
       div {
-        justify-content: end;                        
+        justify-content: end;
       }
     }
   }
@@ -386,7 +420,7 @@ h1 {
   #portfolio {
     overflow: hidden;
 
-    div {
+    .slide {
       .background {
         height: 120%;
         width: auto;
@@ -398,17 +432,29 @@ h1 {
 
       .panel {
         width: 100%;
+        min-height: 80vh;
         position: relative;
+        display: flex;
         top: 0;
         right: 0;
         left: 0;
         bottom: 0;
         margin: 20% 0;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
+
+        &.loading-container {
+          .loader {
+            box-shadow: 0 0 0 10px #fff;
+            border-width: 6px;
+            background-color: #fff;
+            width: 30px;
+            height: 30px;
+          }
+        }
 
         .phone-container {
           margin-top: 10%;
-          width: 100%;
 
           .phone-body {
             margin-bottom: 0;
@@ -420,15 +466,14 @@ h1 {
           }
 
           .arrow {
-            top: 25%;
             width: 25px;
             height: 25px;
           }
           .right {
-            margin-left: 25px;
+            right: -40px;
           }
           .left {
-            margin-right: 25px;
+            left: -40px;
           }
         }
 
@@ -437,7 +482,6 @@ h1 {
           max-width: 100%;
 
           .link {
-
             img {
               width: 15px;
               height: 15px;
@@ -449,8 +493,7 @@ h1 {
   }
 }
 
-
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   html {
     font-size: 20px;
   }

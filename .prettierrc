@@ -1,4 +1,4 @@
 {
     "singleQuote": true,
-    "semiColons": true
+    "semi": true
 }

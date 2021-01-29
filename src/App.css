@@ -348,7 +348,12 @@ h1 {
         max-width: 100%; }
         #portfolio .slide .panel .text-container .link img {
           width: 15px;
-          height: 15px; } }
+          height: 15px; }
+
+  #contact {
+    flex-direction: column; }
+    #contact .button {
+      opacity: 1; } }
 @media (min-width: 1920px) {
   html {
     font-size: 20px; } }

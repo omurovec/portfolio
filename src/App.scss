@@ -491,6 +491,14 @@ h1 {
       }
     }
   }
+
+  #contact {
+    flex-direction: column;
+
+    .button {
+      opacity: 1;
+    }
+  }
 }
 
 @media (min-width: 1920px) {

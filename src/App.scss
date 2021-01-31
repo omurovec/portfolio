@@ -529,3 +529,7 @@ h1 {
     }
   }
 }
+
+video::-internal-media-controls-overlay-cast-button {
+  display: none;
+}

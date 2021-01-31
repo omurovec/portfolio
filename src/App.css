@@ -376,5 +376,7 @@ h1 {
     flex-direction: column; }
     #contact .button {
       opacity: 1; } }
+video::-internal-media-controls-overlay-cast-button {
+  display: none; }
 
 /*# sourceMappingURL=App.css.map */

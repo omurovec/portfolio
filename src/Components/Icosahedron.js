@@ -10,7 +10,9 @@ export default function Icosahedron(id, size) {
     10
   );
   camera.fov = 10;
-  let renderer = new THREE.WebGLRenderer();
+  let renderer = new THREE.WebGLRenderer({
+    antialias: true,
+  });
   renderer.setSize(size.width, size.height);
   document.querySelector(id).appendChild(renderer.domElement);
 
@@ -48,7 +50,7 @@ export default function Icosahedron(id, size) {
   camera.position.z = 5;
 
   // Animate
-  var animate = function() {
+  var animate = function () {
     requestAnimationFrame(animate);
 
     icosahedron.rotation.y += 0.001;

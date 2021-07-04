@@ -1,0 +1,38 @@
+@import '../var.scss';
+
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .button {
+    display: block;
+    height: 15vh;
+    width: 15vh;
+    margin: 5vh;
+    opacity: 0.16;
+    objext-fit: contain;
+    cursor: pointer;
+    transition-duration: 200ms;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .plane {
+    position: absolute;
+    right: 5vw;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  #contact {
+    flex-direction: column;
+
+    .button {
+      opacity: 1;
+    }
+  }
+}

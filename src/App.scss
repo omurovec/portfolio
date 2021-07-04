@@ -533,3 +533,17 @@ h1 {
 video::-internal-media-controls-overlay-cast-button {
   display: none;
 }
+
+#particles-frame {
+  circle {
+    animation: particle;
+    animation-duration: 20s;
+    opacity: 0.8;
+  }
+}
+
+@keyframes particle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+}

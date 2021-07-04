@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Icosahedron } from '../Components';
+import { Icosahedron } from '../components';
+import './Home.scss';
 
-export default function Home() {
+export default function Hero() {
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [loading, setLoading] = useState(true);

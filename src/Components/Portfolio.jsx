@@ -3,7 +3,8 @@ import Background from '../assets/background.png';
 import iPhone from '../assets/iPhone-body.png';
 import Link from '../assets/link.svg';
 import { firestore, storage } from '../Firebase';
-import { Carousel } from '../Components';
+import { Carousel } from '../components';
+import './Portfolio.scss';
 
 export default function Portfolio() {
   const [entries, setEntries] = useState(0);

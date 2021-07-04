@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Profile from '../assets/profile.png';
+import './About.scss';
 
 export default function About() {
   const [matrixStyles, setMatrixStyles] = useState({ display: 'none' });
@@ -26,7 +27,7 @@ export default function About() {
   };
 
   const initMatrix = () => {
-    const profileImage = document.getElementById('profile-image');
+    const profileImage = document.querySelector('.profile');
     const styles = getComputedStyle(profileImage);
     const width = Number(styles.getPropertyValue('width').slice(0, -2));
     const height = Number(styles.getPropertyValue('height').slice(0, -2));

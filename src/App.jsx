@@ -1,17 +1,16 @@
 import React from 'react';
-import { Header } from './Components';
-import { Home, About, Portfolio, Contact } from './Screens';
+import { Header, Home, About, Portfolio, Contact } from './components';
 import './App.scss';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Home />
       <About />
       <Portfolio />
       <Contact />
-    </div>
+    </>
   );
 }
 

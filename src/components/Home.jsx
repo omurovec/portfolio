@@ -47,6 +47,7 @@ export default function Hero() {
           <br />
           {lName}&nbsp;
         </h1>
+        <h2>Developer, Student, Builder.</h2>
       </div>
       <div id="canvas" />
     </div>

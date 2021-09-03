@@ -1,7 +1,6 @@
 @import '../var.scss';
 
 #home {
-  flex-wrap: wrap-reverse;
   .name {
     flex: 1;
     justify-content: center;
@@ -10,9 +9,16 @@
 
     h1 {
       display: block;
-      // font-family: 'Roboto Mono';
-      margin: 10vw;
-      text-justify: center;
+      margin-left: 10vw;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+    h2 {
+      display: block;
+      margin-left: 10vw;
+      margin-top: 2rem;
+      opacity: 0.5;
+      font-weight: 400;
     }
   }
 
@@ -26,18 +32,28 @@
   }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: $mobile) {
   #home {
+    flex-direction: column;
+
     #canvas {
       width: 40vw;
       align-self: center;
-      margin-bottom: 10vh;
+      margin-bottom: 25vh;
     }
 
     .name {
       position: absolute;
-      bottom: 5vh;
-      left: 0;
+      bottom: 10vh;
+      width: 90vw;
+
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        margin: 0;
+        margin-top: 2rem;
+      }
     }
   }
 }

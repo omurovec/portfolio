@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ReactComponent as CodeIcon } from '../assets/code.svg';
 import { ReactComponent as LinkIcon } from '../assets/link.svg';
-import { ReactComponent as Legend } from '../assets/legend.svg';
 import FirebaseImage from './FirebaseImage';
 import { firestore } from '../util/firebase';
-import './Portfolio.scss';
 
 export default function Portfolio() {
   const [projects, setProjects] = useState();

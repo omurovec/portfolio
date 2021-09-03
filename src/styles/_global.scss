@@ -1,4 +1,4 @@
-@import 'var.scss';
+@import 'variables';
 
 * {
   font-family: 'Comfortaa';
@@ -6,7 +6,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: $offWhite;
+  background: var(--background);
   overflow-x: hidden;
 }
 

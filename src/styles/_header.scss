@@ -1,4 +1,4 @@
-@import '../var.scss';
+@import 'variables';
 
 #header {
   position: fixed;
@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: $offWhite;
+    background-color: var(--background);
   }
 
   .page-link {
@@ -71,7 +71,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: $offWhite;
+      background-color: var(--background);
       overflow: hidden;
       transition: opacity 200ms ease-in-out, height 0ms ease 200ms;
       height: 100vh;

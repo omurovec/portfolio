@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Matrix } from '.';
 import Profile from '../assets/profile.png';
-import './About.scss';
 
 export default function About() {
   const profileContainer = useRef();

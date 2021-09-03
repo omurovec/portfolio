@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Toggle from '../assets/toggle.svg';
 import ToggleClose from '../assets/toggle-close.svg';
-import './Header.scss';
 
 export default function Header() {
   const [pageState, setPageState] = useState(0);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Icosahedron } from '../components';
-import './Home.scss';
 
 export default function Hero() {
   const [fName, setFName] = useState('');

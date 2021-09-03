@@ -1,4 +1,4 @@
-@import '../var.scss';
+@import 'variables';
 
 #about {
   .container {
@@ -52,7 +52,7 @@
       transform: translate(-50%, -50%);
       width: 60%;
       border-radius: 50%;
-      box-shadow: $shadow;
+      box-shadow: var(--shadow);
     }
 
     #matrix {

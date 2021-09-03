@@ -2,7 +2,6 @@ import React from 'react';
 import Github from '../assets/github.svg';
 import Linkedin from '../assets/linkedin.svg';
 import PaperPlane from '../assets/paper-plane.svg';
-import './Contact.scss';
 
 export default function Contact() {
   return (

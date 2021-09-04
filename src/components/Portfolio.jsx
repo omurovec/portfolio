@@ -13,6 +13,7 @@ export default function Portfolio() {
     if (!projects) {
       firestore
         .collection('projects')
+        .orderBy('date', 'desc')
         .get()
         .then((snapshot) => {
           if (subscribed) {

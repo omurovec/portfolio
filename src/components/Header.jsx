@@ -54,6 +54,7 @@ export default function Header() {
       <div className={expanded ? 'expanded container' : 'collapsed container'}>
         {sections.map((name, index) => (
           <button
+            key={name}
             className={`page-link ${pageState === index ? 'selected' : ''}`}
             onClick={() => {
               scrollTo(name.toLowerCase());

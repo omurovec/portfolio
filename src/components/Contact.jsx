@@ -13,6 +13,8 @@ export default function Contact() {
         }}
         src={Github}
         alt="Github logo"
+        target="_blank"
+        rel="noopener noreferrer"
       />
       <img
         className="button"
@@ -21,6 +23,8 @@ export default function Contact() {
         }}
         src={Linkedin}
         alt="Linkedin logo"
+        target="_blank"
+        rel="noopener noreferrer"
       />
       <img className="plane" src={PaperPlane} alt="plane" />
     </div>

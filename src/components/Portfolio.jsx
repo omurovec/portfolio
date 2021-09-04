@@ -39,24 +39,46 @@ export default function Portfolio() {
           {projects &&
             projects.map(({ logo, title, desc, links, repo }) => (
               <div className="project" key={title}>
-                <FirebaseImage link={logo} alt={title} className="logo" />
+                <FirebaseImage
+                  link={logo}
+                  alt={title}
+                  className="logo"
+                  onClick={() => {
+                    window.open(links?.[0]);
+                  }}
+                />
                 <div className="info">
-                  <h4>{title}</h4>
+                  <h4
+                    onClick={() => {
+                      window.open(links?.[0]);
+                    }}
+                  >
+                    {title}
+                  </h4>
                   <p>{desc}</p>
                   <div className="links">
                     {repo && (
-                      <a href={repo}>
+                      <a href={repo} target="_blank" rel="noopener noreferrer">
                         <CodeIcon />
                       </a>
                     )}
                     {links &&
                       (links.length === 1 ? (
-                        <a href={links[0]}>
+                        <a
+                          href={links[0]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <LinkIcon />
                         </a>
                       ) : (
                         links.map((link, i) => (
-                          <a key={i} href={link}>
+                          <a
+                            key={i}
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <LinkIcon className={`link-${i}`} />
                           </a>
                         ))

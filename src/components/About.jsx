@@ -26,7 +26,7 @@ export default function About() {
             the traditional Web2 space where I focused heavily on creating
             attractive, functional interfaces using a wide range of front-end
             technologies and frameworks. In order to succeed, the future of
-            decentralization relies on user-friendly interfaces and I plan to be
+            decentralization relies on user-friendly interfaces. I plan to be
             part of the driving force that moves that forward. Currently I am
             working on finishing my B.Sc. at the University of British Columbia
             and plan to pick up where I left off working in the Web3 Space when

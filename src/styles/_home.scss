@@ -32,7 +32,13 @@
   }
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $tablet) {
+  #home {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: $tablet) {
   #home {
     flex-direction: column;
 

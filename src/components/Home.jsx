@@ -30,8 +30,11 @@ export default function Hero() {
   function initIso() {
     let width = window.innerWidth;
     let height = window.innerHeight;
-    if (width >= height) {
+    if (width > 992) {
       Icosahedron('#canvas', { width: height / 2, height: height / 2 });
+    } else if (width > 668) {
+      Icosahedron('#canvas', { width: width / 1.25, height: width / 1.25 });
+      document.getElementById('canvas').style.transform = 'scale(0.6)';
     } else {
       Icosahedron('#canvas', { width: width, height: width });
       document.getElementById('canvas').style.transform = 'scale(0.6)';

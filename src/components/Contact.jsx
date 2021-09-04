@@ -4,6 +4,10 @@ import Linkedin from '../assets/linkedin.svg';
 import PaperPlane from '../assets/paper-plane.svg';
 
 export default function Contact() {
+  const mailTo = () => {
+    window.location.href = 'mailto:owen@murovec.me';
+  };
+
   return (
     <div className="page" id="contact">
       <img
@@ -26,7 +30,7 @@ export default function Contact() {
         target="_blank"
         rel="noopener noreferrer"
       />
-      <img className="plane" src={PaperPlane} alt="plane" />
+      <img className="plane" src={PaperPlane} alt="plane" onClick={mailTo} />
     </div>
   );
 }

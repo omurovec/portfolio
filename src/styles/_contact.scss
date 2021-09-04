@@ -24,6 +24,10 @@
     position: absolute;
     right: 5vw;
     bottom: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

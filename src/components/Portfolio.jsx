@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ReactComponent as CodeIcon } from '../assets/code.svg';
+import { ReactComponent as CodeIcon } from '../assets/github.svg';
 import { ReactComponent as LinkIcon } from '../assets/link.svg';
 import { FirebaseImage, Spinner } from './';
 import { firestore } from '../util/firebase';

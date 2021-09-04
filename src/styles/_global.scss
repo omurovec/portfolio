@@ -1,17 +1,17 @@
-@import 'var.scss';
+@import 'variables';
 
 * {
-  font-family: 'Comfortaa';
+  font-family: 'Comfortaa', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: $offWhite;
+  background: var(--background);
   overflow-x: hidden;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 200;
   font-kerning: normal;
 }
@@ -33,6 +33,12 @@ h1 {
   width: 20px;
   height: 20px;
   animation: spin 2s linear infinite;
+}
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @keyframes spin {
@@ -58,8 +64,4 @@ h1 {
   h1 {
     font-size: 3.5rem;
   }
-}
-
-video::-internal-media-controls-overlay-cast-button {
-  display: none;
 }

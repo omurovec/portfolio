@@ -14,6 +14,7 @@ export default function Icosahedron(id, size) {
     antialias: true,
   });
   renderer.setSize(size.width, size.height);
+  renderer.setPixelRatio(window.devicePixelRatio);
   document.querySelector(id).appendChild(renderer.domElement);
 
   // Adjust size for platform

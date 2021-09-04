@@ -9,6 +9,8 @@ name: Deploy to Firebase Hosting on push
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_URL: https://murovec.me
     steps:
       - uses: actions/checkout@v2
       - run: npm ci

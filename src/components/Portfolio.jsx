@@ -1,113 +1,95 @@
 import React, { useState, useEffect } from 'react';
-import Background from '../assets/background.png';
-import iPhone from '../assets/iPhone-body.png';
-import Link from '../assets/link.svg';
-import { firestore, storage } from '../Firebase';
-import { Carousel } from '../components';
-import './Portfolio.scss';
+import { ReactComponent as CodeIcon } from '../assets/code.svg';
+import { ReactComponent as LinkIcon } from '../assets/link.svg';
+import { FirebaseImage, Spinner } from './';
+import { firestore } from '../util/firebase';
 
 export default function Portfolio() {
-  const [entries, setEntries] = useState(0);
+  const [projects, setProjects] = useState();
 
   useEffect(() => {
     let subscribed = true;
-    if (!entries) {
+
+    if (!projects) {
       firestore
-        .collection('entries')
+        .collection('projects')
+        .orderBy('date', 'desc')
         .get()
         .then((snapshot) => {
-          let results = [];
-          snapshot.forEach((doc) => {
-            results.push(doc.data());
-          });
           if (subscribed) {
-            setEntries(results);
+            let data = [];
+            snapshot.forEach((doc) => data.push(doc.data()));
+            setProjects(data);
           }
         })
-        .catch((err) => console.warn(err));
+        .catch((err) => {
+          console.error(err);
+        });
     }
+
     return () => {
       subscribed = false;
     };
-  }, [entries]);
+  }, [projects]);
 
   return (
-    <div className="page" id="portfolio">
-      <div className="container">
-        <h1>Portfolio</h1>
-        <img className="background" src={Background} alt="background" />
-        {entries ? (
-          <Carousel
-            data={entries}
-            renderItem={(entry) => (
-              <>
-                <div className="phone-container">
-                  <img src={iPhone} className="phone-body" alt="iphone" />
-                  <PhoneVideo videoRef={entry.videoRef} />
-                </div>
-                <div className="text-container">
-                  <h2>{entry.title}</h2>
-                  <p>{entry.desc}</p>
-                  {entry.links?.map((item) => (
-                    <div className="link" key={item.name}>
-                      <img src={Link} alt="link" />
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {item.name}
+    <div id="portfolio">
+      <h2>Experience</h2>
+      <div className="list-container">
+        <div className="project-list">
+          {projects ? (
+            projects.map(({ logo, title, desc, links, repo }) => (
+              <div className="project" key={title}>
+                <FirebaseImage
+                  link={logo}
+                  alt={title}
+                  className={`logo ${links ? 'clickable' : null}`}
+                  onClick={links ? () => window.open(links?.[0]) : null}
+                />
+                <div className="info">
+                  <h4
+                    className={links ? 'clickable' : null}
+                    onClick={links ? () => window.open(links?.[0]) : null}
+                  >
+                    {title}
+                  </h4>
+                  <p>{desc}</p>
+                  <div className="links">
+                    {repo && (
+                      <a href={repo} target="_blank" rel="noopener noreferrer">
+                        <CodeIcon />
                       </a>
-                    </div>
-                  ))}
+                    )}
+                    {links &&
+                      (links.length === 1 ? (
+                        <a
+                          href={links[0]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <LinkIcon />
+                        </a>
+                      ) : (
+                        links.map((link, i) => (
+                          <a
+                            key={i}
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <LinkIcon className={`link-${i}`} />
+                          </a>
+                        ))
+                      ))}
+                  </div>
                 </div>
-              </>
-            )}
-          />
-        ) : (
-          <div className="loading-container">
-            <div className="loader" />
-          </div>
-        )}
+              </div>
+            ))
+          ) : (
+            <Spinner />
+          )}
+        </div>
       </div>
     </div>
   );
 }
-
-const PhoneVideo = ({ videoRef }) => {
-  const [src, setSrc] = useState(null);
-
-  useEffect(() => {
-    let subscribed = true;
-    storage
-      .ref(videoRef)
-      .getDownloadURL()
-      .then((result) => {
-        if (subscribed) {
-          setSrc(result);
-        }
-      })
-      .catch((err) => {
-        console.warn(err);
-      });
-    return () => {
-      subscribed = false;
-    };
-  }, [videoRef]);
-
-  return src ? (
-    <video
-      autoPlay={true}
-      loop={true}
-      muted={true}
-      playsInline={true}
-      src={src}
-      className="phone-video"
-      alt="phoneVideo"
-    ></video>
-  ) : (
-    <div className="phone-video">
-      <div className="loader" />
-    </div>
-  );
-};

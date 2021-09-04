@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Icosahedron } from '../components';
-import './Home.scss';
 
 export default function Hero() {
   const [fName, setFName] = useState('');
@@ -31,8 +30,11 @@ export default function Hero() {
   function initIso() {
     let width = window.innerWidth;
     let height = window.innerHeight;
-    if (width >= height) {
+    if (width > 992) {
       Icosahedron('#canvas', { width: height / 2, height: height / 2 });
+    } else if (width > 668) {
+      Icosahedron('#canvas', { width: width / 1.25, height: width / 1.25 });
+      document.getElementById('canvas').style.transform = 'scale(0.6)';
     } else {
       Icosahedron('#canvas', { width: width, height: width });
       document.getElementById('canvas').style.transform = 'scale(0.6)';
@@ -47,6 +49,7 @@ export default function Hero() {
           <br />
           {lName}&nbsp;
         </h1>
+        <h2>Developer, Student, Builder.</h2>
       </div>
       <div id="canvas" />
     </div>

@@ -1,4 +1,4 @@
-@import '../var.scss';
+@import 'variables';
 
 #contact {
   display: flex;
@@ -24,6 +24,10 @@
     position: absolute;
     right: 5vw;
     bottom: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

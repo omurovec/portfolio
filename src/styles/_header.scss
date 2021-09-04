@@ -1,4 +1,4 @@
-@import '../var.scss';
+@import 'variables';
 
 #header {
   position: fixed;
@@ -6,12 +6,17 @@
   left: 0;
   right: 0;
   z-index: 2;
+  transition: box-shadow 400ms ease-in-out;
+
+  &.scrolled {
+    box-shadow: var(--shadow-light);
+  }
 
   .container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: $offWhite;
+    background-color: var(--background);
   }
 
   .page-link {
@@ -19,14 +24,18 @@
     width: auto;
     font-weight: 600;
     margin: 0.5rem;
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
     display: block;
     border: none;
     background: none;
     text-align: center;
     transition: opacity ease-in-out 50ms;
     opacity: 0.5;
+
+    &.selected {
+      opacity: 1;
+    }
 
     &:focus {
       outline: none;
@@ -45,7 +54,7 @@
   }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: $mobile) {
   #header {
     background: none;
 
@@ -56,6 +65,7 @@
       top: 15px;
       width: 40px;
       height: 40px;
+      z-index: 99;
       align-items: center;
       justify-content: center;
 
@@ -70,9 +80,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: $offWhite;
+      background-color: var(--background);
       overflow: hidden;
-      transition-duration: 200ms;
+      transition: opacity 200ms ease-in-out, height 0ms ease 200ms;
+      height: 100vh;
     }
 
     .page-link {
@@ -84,11 +95,15 @@
     }
 
     .expanded {
-      height: 100vh;
+      opacity: 1;
+      transition: opacity 200ms ease-in-out, height 0ms ease 0ms;
     }
 
     .collapsed {
-      height: 0vh;
+      height: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 200ms ease-in-out, height 0ms ease 200ms;
     }
   }
 }

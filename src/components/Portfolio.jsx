@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ReactComponent as CodeIcon } from '../assets/code.svg';
 import { ReactComponent as LinkIcon } from '../assets/link.svg';
-import FirebaseImage from './FirebaseImage';
+import { FirebaseImage, Spinner } from './';
 import { firestore } from '../util/firebase';
 
 export default function Portfolio() {
@@ -86,7 +86,7 @@ export default function Portfolio() {
               </div>
             ))
           ) : (
-            <div className="loader" />
+            <Spinner />
           )}
         </div>
       </div>

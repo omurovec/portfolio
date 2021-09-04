@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from './';
 import { storage } from '../util/firebase';
 
 export default function FirebaseImage({ link, alt, ...props }) {
@@ -22,5 +23,5 @@ export default function FirebaseImage({ link, alt, ...props }) {
     };
   }, [link]);
 
-  return <img {...props} alt={alt} src={src} />;
+  return src ? <img {...props} alt={alt} src={src} /> : <Spinner />;
 }

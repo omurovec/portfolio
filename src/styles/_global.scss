@@ -1,7 +1,7 @@
 @import 'variables';
 
 * {
-  font-family: 'Comfortaa';
+  font-family: 'Comfortaa', sans-serif;
 }
 
 html {
@@ -33,6 +33,12 @@ h1 {
   width: 20px;
   height: 20px;
   animation: spin 2s linear infinite;
+}
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @keyframes spin {

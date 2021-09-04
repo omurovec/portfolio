@@ -37,22 +37,19 @@ export default function Portfolio() {
       <h2>Experience</h2>
       <div className="list-container">
         <div className="project-list">
-          {projects &&
+          {projects ? (
             projects.map(({ logo, title, desc, links, repo }) => (
               <div className="project" key={title}>
                 <FirebaseImage
                   link={logo}
                   alt={title}
-                  className="logo"
-                  onClick={() => {
-                    window.open(links?.[0]);
-                  }}
+                  className={`logo ${links ? 'clickable' : null}`}
+                  onClick={links ? () => window.open(links?.[0]) : null}
                 />
                 <div className="info">
                   <h4
-                    onClick={() => {
-                      window.open(links?.[0]);
-                    }}
+                    className={links ? 'clickable' : null}
+                    onClick={links ? () => window.open(links?.[0]) : null}
                   >
                     {title}
                   </h4>
@@ -87,7 +84,10 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div className="loader" />
+          )}
         </div>
       </div>
     </div>

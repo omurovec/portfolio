@@ -5,6 +5,7 @@ import ToggleClose from '../assets/toggle-close.svg';
 export default function Header() {
   const [pageState, setPageState] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const sections = ['Home', 'About', 'Portfolio', 'Contact'];
 
@@ -22,6 +23,12 @@ export default function Header() {
     let posY = window.scrollY;
     let pageBuffer = window.innerHeight / 2;
 
+    if (posY > 60) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
     for (let i = 0; i < sections.length; i++) {
       if (
         posY <
@@ -35,7 +42,7 @@ export default function Header() {
   }
 
   return (
-    <div id="header">
+    <div id="header" className={scrolled ? 'scrolled' : null}>
       <button
         onClick={() => {
           setExpanded(!expanded);

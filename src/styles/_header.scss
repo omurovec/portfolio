@@ -6,6 +6,11 @@
   left: 0;
   right: 0;
   z-index: 2;
+  transition: box-shadow 400ms ease-in-out;
+
+  &.scrolled {
+    box-shadow: var(--shadow-light);
+  }
 
   .container {
     display: flex;

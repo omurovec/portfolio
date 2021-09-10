@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ipfs-deploy": "node ipfs/deploy.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +35,8 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^8.2.0",
     "sass": "^1.35.1"
   }
 }

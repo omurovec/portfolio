@@ -27,7 +27,7 @@ jobs:
 
       - name: Pin to IPFS
         id: pinata
-        uses: actions/ipfs-pinata-deploy-action@v1.6.3
+        uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.3
         with:
           pin-name: murovec.me
           path: ./build

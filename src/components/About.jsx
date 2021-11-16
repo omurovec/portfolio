@@ -25,12 +25,16 @@ export default function About() {
             2021. Before learning about decentralization I spent time working in
             the traditional Web2 space where I focused heavily on creating
             attractive, functional interfaces using a wide range of front-end
-            technologies and frameworks. In order to succeed, the future of
-            decentralization relies on user-friendly interfaces. I plan to be
-            part of the driving force that moves that forward. Currently I am
-            working on finishing my B.Sc. at the University of British Columbia
-            and plan to pick up where I left off working in the Web3 Space when
-            I graduate in Spring 2022.
+            technologies and frameworks. Currently I am building{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://increment.finance"
+            >
+              Increment
+            </a>
+            , a decentralized exchange rate protocol with a hope to make
+            decentralized finance more global.
           </p>
         </div>
         <div className="profile" ref={profileContainer}>

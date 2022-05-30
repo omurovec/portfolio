@@ -1,4 +1,5 @@
-name:
+name: IPFS Deploy
+
 on:
   push:
     branches:
@@ -8,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      PUBLIC_URL: https://murovec.me
+      PUBLIC_URL: https://ipfs.murovec.me
     steps:
       - name: Checkout
         uses: actions/checkout@v2

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "https://murovec.me/static/css/main.a9e7f3b2.css",
+    "main.js": "https://murovec.me/static/js/main.5bfbca4f.js",
+    "static/media/profile.png": "https://murovec.me/static/media/profile.33e2f0ebb93984713e17.png",
+    "static/media/increment.png": "https://murovec.me/static/media/increment.fbcba6dace0e90221c42.png",
+    "static/media/kernel.png": "https://murovec.me/static/media/kernel.bafbf0d7f2cde4b8a19f.png",
+    "static/media/dsc.png": "https://murovec.me/static/media/dsc.dbde63b9bfba06023a75.png",
+    "static/media/daohaus.png": "https://murovec.me/static/media/daohaus.f482e6e03fc1940e2d57.png",
+    "static/media/minty.png": "https://murovec.me/static/media/minty.5bbc04b21f92443ae520.png",
+    "static/media/github.svg": "https://murovec.me/static/media/github.4838d36f1924c41f808acfe30e58f566.svg",
+    "index.html": "https://murovec.me/index.html",
+    "static/media/link.svg": "https://murovec.me/static/media/link.51cf0c9bae1ef7cdd24d1812007745b2.svg",
+    "static/media/paper-plane.svg": "https://murovec.me/static/media/paper-plane.60745cb255d3af77b716116269fca23e.svg",
+    "static/media/linkedin.svg": "https://murovec.me/static/media/linkedin.27a3f479ca1bbb0ceef19e395081fb94.svg",
+    "static/media/toggle.svg": "https://murovec.me/static/media/toggle.ea57cc9bb5dc8633148aa24569c5066c.svg",
+    "static/media/toggle-close.svg": "https://murovec.me/static/media/toggle-close.78b3529182da61232bc269352f36e733.svg",
+    "main.a9e7f3b2.css.map": "https://murovec.me/static/css/main.a9e7f3b2.css.map",
+    "main.5bfbca4f.js.map": "https://murovec.me/static/js/main.5bfbca4f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9e7f3b2.css",
+    "static/js/main.5bfbca4f.js"
+  ]
+}
